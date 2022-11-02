@@ -7,6 +7,11 @@ const commentData=[
       post_id: 1,
     },
     {
+      content: `Not very useful`,
+      user_id: 1,
+      post_id: 1,
+    },
+    {
       content: `This is very useful`,
       user_id: 1,
       post_id: 2,

@@ -21,19 +21,20 @@ router.get('/', async(req, res) => {
 });
 
 //create router for specific post;
-router.get('/posts/:id', async(req, res)=>{
+router.get('/post/:id', async(req, res)=>{
     try{
-        const postData = await Post.findByPk({
-            includes:[
+        const postData = await Post.findOne({
+            where: {
+                id: req.params.id
+            },
+            include:[
                 { model: User, attributes: ['username']},
                 { model: Comment, attributes: ['content']}
             ]
         });
         const posts = postData.get({plain: true});
-        res.render('comment', {
-            ...posts,
-            logged_in: req.session.logged_in
-        });
+        console.log(posts)
+        res.render('comment', {posts, logged_in: req.session.logged_in})
     } catch (err) {
         res.status(500).json(err);
     }
