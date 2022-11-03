@@ -1,11 +1,11 @@
-let logInForm = document.querySelector('.logIn');
-let signUpForm = document.querySelector('.signUp');
+let logInForm = document.querySelector('#login-form');
+let signUpForm = document.querySelector('#signup-form');
 
 //handling login
 async function logInHandler(event){
     event.preventDefault();
-    let email = document.querySelector('#loginemail').value.trim();
-    let password = document.querySelector('#loginpswd').value.trim();
+    let email = document.querySelector('#login-email').value.trim();
+    let password = document.querySelector('#login-password').value.trim();
 
     if (email && password) {
         const response =  await fetch('/api/users/login', {
@@ -24,9 +24,9 @@ async function logInHandler(event){
 //handling singup
 async function signUpHandler(event) {
     event.preventDefault();
-    let username = document.querySelector('#signupUsername').value.trim();
-    let email = document.querySelector('#signupEmail').value.trim();
-    let password = document.querySelector('#signupPswd').value.trim();
+    let username = document.querySelector('#signup-name').value.trim();
+    let email = document.querySelector('#signup-email').value.trim();
+    let password = document.querySelector('#signup-password').value.trim();
 
     if (username && email && password) {
         const response = await fetch('/api/users', {
