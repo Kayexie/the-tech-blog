@@ -1,19 +1,31 @@
+<h2>Welcom</h2>
 <div>
-    <form>
+    <h4>Create A New Post</h4>
+    <form id="creat-post">
         <div class="form-group">
-          <label for="exampleInputEmail1">title</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <label for="exampleInputEmail1">title</label>
+            <input type="text" class="form-control" id="title" aria-describedby="emailHelp">
         </div>
         <div class="form-group">
             <form class="was-validated">
                 <div class="mb-3">
-                  <label for="validationTextarea">content</label>
-                  <textarea class="form-control" id="validationTextarea" placeholder="Required example textarea" required></textarea>
-                  <div class="invalid-feedback">
-                    Please enter a message in the textarea.
-                  </div>
+                    <label for="validationTextarea">content</label>
+                    <textarea class="form-control" id="content"></textarea>
+                    <div class="invalid-feedback">
+                        Please enter a message in the textarea.
+                    </div>
                 </div>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Add new post</button>
     </form>
 </div>
+<div>
+    <h4>Manage your posts</h4>
+    <div class="card-body">
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-success" id="update">Upate</a>
+        <a href="#" class="btn btn-danger" id="delete">Delete</a>
+    </div>
+</div>
+
+<script src="/js/profile.js"></script>
