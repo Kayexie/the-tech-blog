@@ -12,23 +12,40 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        {{#if loggedIn}}
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
                     <a class="nav-link" href="/">Home</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Dashboard</a>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/profile">Profile</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Login</a>
+                    <a class="nav-link" id="logout">Logout</a>
                 </li>
             </ul>
         </div>
+        {{else}}
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/login">Login</a>
+                </li>
+            </ul>
+        </div>
+        {{/if}}
     </nav>
     <main>
         {{{body}}}
     </main>
 </body>
+
+{{#if loggedIn}}
+<script src="/js/logout.js"></script>
+{{/if}}
 
 </html>

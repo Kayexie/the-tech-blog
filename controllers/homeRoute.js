@@ -14,7 +14,7 @@ router.get('/', async(req, res) => {
             ]
         });
         const posts = postData.map((data)=>data.get({plain: true}));
-        res.render('homepage', {posts, logged_in: req.session.logged_in})
+        res.render('homepage', {posts, loggedIn: req.session.loggedIn})
     } catch(err) {
         res.status(500).json(err)
     }
@@ -34,10 +34,21 @@ router.get('/post/:id', async(req, res)=>{
         });
         const posts = postData.get({plain: true});
         console.log(posts)
-        res.render('comment', {posts, logged_in: req.session.logged_in})
+        res.render('comment', {posts, loggedIn: req.session.loggedIn})
     } catch (err) {
         res.status(500).json(err);
     }
 })
 
+//create router for login in 
+router.get('/login', (req, res)=> {
+    if(req.session.loggedIn) {
+        res.redirect('/');
+        return;
+    }
+    res.render('login')
+})
+
 module.exports = router;
+
+//create a user page to create new post and manage their post(update/delete)
