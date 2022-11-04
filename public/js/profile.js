@@ -1,10 +1,13 @@
 //create a new post
+
 const createHandler = async (event)=>{
 event.preventDefault();
 
 const title = document.querySelector('#title').value.trim();
 const content =document.querySelector('#content').value.trim();
 
+console.log('kjdkf;jakldjf;lkadsjf;lkajd;lfkajds;lfk');
+console.log(title, content)
 if (title && content) {
     const response = await fetch('/api/posts', {
         method:'POST',
@@ -14,11 +17,11 @@ if (title && content) {
           },
     });
     if (response.ok) {
-        document.location.reload();
+        document.location.replace('/');
       } else {
         alert('Failed to create a comment');
       }
 }
 };
 
-document.querySelector('#creat-post').addEventListener('submit', createHandler);
+document.querySelector('#generatepost').addEventListener('submit', createHandler);
