@@ -21,12 +21,14 @@
     </div>
     {{/each}}
 </div>
-<form id="add-comment">
+{{#if loggedIn}}
+<form class="add-comment">
     <div class="form-group">
         <label for="exampleFormControlTextarea1">Add your comment here: </label>
         <textarea class="form-control" id="comment-content" rows="3"></textarea>
     </div>
     <button type="button" class="btn btn-primary">Submit</button>
 </form>
+{{/if}}
 
 <script src="/js/comment.js"></script>

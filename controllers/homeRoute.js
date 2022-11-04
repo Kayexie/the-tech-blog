@@ -23,7 +23,7 @@ router.get('/', async(req, res) => {
 
 //create router for specific post;
 router.get('/post/:id', async(req, res)=>{
-    console.log("Post get by ID",req.params.id)
+
     try{
         const postData = await Post.findOne({
             where: {
@@ -34,9 +34,9 @@ router.get('/post/:id', async(req, res)=>{
                 { model: Comment, attributes: ['content']}
             ]
         });
-        console.log(postData)
+
         const posts = postData.get({plain: true});
-        console.log(posts)
+
        
         res.render('comment', {...posts, loggedIn: req.session.loggedIn})
     } catch (err) {
@@ -58,7 +58,7 @@ router.get('/login', (req, res)=> {
 
 router.get('/profile', async(req, res)=> {
     try{
-        const userData = await User.findByPk(req.session.userId, {
+        const userData = await User.findByPk(req.session.user_id, {
                    attributes:{exclude:['password']},
                    include:[{model:Post}]
         });
