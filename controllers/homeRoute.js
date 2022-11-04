@@ -23,6 +23,7 @@ router.get('/', async(req, res) => {
 
 //create router for specific post;
 router.get('/post/:id', async(req, res)=>{
+    console.log("Post get by ID",req.params.id)
     try{
         const postData = await Post.findOne({
             where: {
@@ -33,10 +34,13 @@ router.get('/post/:id', async(req, res)=>{
                 { model: Comment, attributes: ['content']}
             ]
         });
+        console.log(postData)
         const posts = postData.get({plain: true});
         console.log(posts)
-        res.render('comment', {posts, loggedIn: req.session.loggedIn})
+       
+        res.render('comment', {...posts, loggedIn: req.session.loggedIn})
     } catch (err) {
+        console.log(err)
         res.status(500).json(err);
     }
 })

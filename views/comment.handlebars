@@ -1,2 +1,32 @@
-{{title}}
-{{content}}
+<div class="card">
+    <div class="card-header">
+        {{title}}
+    </div>
+    <div class="card-body">
+        <blockquote class="blockquote mb-0">
+            <p>{{content}}</p>
+            <footer class="blockquote-footer">{{user.username}} <cite title="Source Title">{{format_date
+                    date_created}}</cite>
+            </footer>
+        </blockquote>
+    </div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <h6>comments</h6>
+    </div>
+    {{#each comments}}
+    <div class="card-body">
+        <p> {{this.content}}</p>
+    </div>
+    {{/each}}
+</div>
+<form id="add-comment">
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">Add your comment here: </label>
+        <textarea class="form-control" id="comment-content" rows="3"></textarea>
+    </div>
+    <button type="button" class="btn btn-primary">Submit</button>
+</form>
+
+<script src="/js/comment.js"></script>
