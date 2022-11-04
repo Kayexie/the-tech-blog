@@ -63,7 +63,7 @@ router.get('/profile', async(req, res)=> {
                    include:[{model:Post}]
         });
         const user=userData.get({plain:true});
-        res.render('profile', {user, loggedIn: req.session.loggedIn})
+        res.render('profile', {...user, loggedIn: req.session.loggedIn})
     } catch(err) {
         res.status(500).json(err);
     }

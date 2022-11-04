@@ -6,9 +6,6 @@ const post_id = window.location.toString().split('/')[
     window.location.toString().split('/').length - 1
   ];
 
-console.log(content, post_id);
-console.log('adfkjadlkfjaldjf;alsdjf;asdjkfas;d')
-
 if(content && post_id){
 const response = await fetch('/api/comments', {
     method: 'POST',
