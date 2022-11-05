@@ -71,4 +71,3 @@ router.get('/profile', async(req, res)=> {
 
 module.exports = router;
 
-//create a user page to create new post and manage their post(update/delete)
