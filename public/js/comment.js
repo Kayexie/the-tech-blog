@@ -1,3 +1,6 @@
+
+//create comment.
+
 const addCommentHandler = async (event)=> {
 event.preventDefault();
 
@@ -21,4 +24,6 @@ const response = await fetch('/api/comments', {
 
 
 document.querySelector('.add-comment').addEventListener('submit', addCommentHandler);
+
+//
 

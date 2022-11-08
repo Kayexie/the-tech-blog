@@ -67,6 +67,6 @@ const updateHandler = async(event) =>{
   }
 }
 
-document.querySelector('#update').addEventListener('click', updateHandler);
-// document.querySelector('#delete').addEventListener('click', deleteHandler);
 document.querySelector('#generatepost').addEventListener('submit', createHandler);
+document.querySelector('#update').addEventListener('click', updateHandler);
+document.querySelector('#delete').addEventListener('click', deleteHandler);
