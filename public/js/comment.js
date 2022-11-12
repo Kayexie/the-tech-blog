@@ -25,5 +25,4 @@ const response = await fetch('/api/comments', {
 
 document.querySelector('.add-comment').addEventListener('submit', addCommentHandler);
 
-//
 
